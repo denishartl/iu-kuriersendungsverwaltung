@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 @Entity
 public class Paket extends Sendung {
     private boolean sperrgut;
-
+    
     public boolean isSperrgut() {
         return sperrgut;
     }

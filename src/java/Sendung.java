@@ -18,18 +18,13 @@ import javax.persistence.OneToMany;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Sendung implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String status;
-    private String adresse_strasse;
-    private String adresse_ort;
-    private int adresse_plz;
+    private String adresseStrasse;
+    private String adresseOrt;
+    private int adressePlz;
     private String groesse;
     private double gewicht;
-    @ManyToOne
-    private List<Briefmarke> briefmarken;
-    @OneToMany
-    private Empfaenger empfaenger;
 
     public int getId() {
         return id;
@@ -47,28 +42,28 @@ public class Sendung implements Serializable {
         this.status = status;
     }
 
-    public String getAdresse_strasse() {
-        return adresse_strasse;
+    public String getAdresseStrasse() {
+        return adresseStrasse;
     }
 
-    public void setAdresse_strasse(String adresse_strasse) {
-        this.adresse_strasse = adresse_strasse;
+    public void setAdresseStrasse(String adresseStrasse) {
+        this.adresseStrasse = adresseStrasse;
     }
 
-    public String getAdresse_ort() {
-        return adresse_ort;
+    public String getAdresseOrt() {
+        return adresseOrt;
     }
 
-    public void setAdresse_ort(String adresse_ort) {
-        this.adresse_ort = adresse_ort;
+    public void setAdresseOrt(String adresseOrt) {
+        this.adresseOrt = adresseOrt;
     }
 
-    public int getAdresse_plz() {
-        return adresse_plz;
+    public int getAdressePlz() {
+        return adressePlz;
     }
 
-    public void setAdresse_plz(int adresse_plz) {
-        this.adresse_plz = adresse_plz;
+    public void setAdressePlz(int adressePlz) {
+        this.adressePlz = adressePlz;
     }
 
     public String getGroesse() {
@@ -87,21 +82,5 @@ public class Sendung implements Serializable {
         this.gewicht = gewicht;
     }
 
-    public List<Briefmarke> getBriefmarken() {
-        return briefmarken;
-    }
-
-    public void setBriefmarken(List<Briefmarke> briefmarken) {
-        this.briefmarken = briefmarken;
-    }
-
-    public Empfaenger getEmpfaenger() {
-        return empfaenger;
-    }
-
-    public void setEmpfaenger(Empfaenger empfaenger) {
-        this.empfaenger = empfaenger;
-    }
-    
     
 }

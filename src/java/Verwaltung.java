@@ -1,8 +1,12 @@
 
-import javax.annotation.ManagedBean;
+import java.util.List;
 import javax.faces.bean.ApplicationScoped;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.faces.bean.ManagedBean;
+
+
+
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,13 +23,19 @@ import javax.persistence.Persistence;
 public class Verwaltung {
   //private List<Artikel> sortiment = new ArrayList<Artikel>();
     private static Verwaltung instance = new Verwaltung();
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("kuriersendungsverwaltung");
+    private SendungDAO sendungDao;
+    private String name = "fucker";
 
     public Verwaltung() {
-
+       sendungDao = new SendungDAO();
     }
 
     public static Verwaltung getInstance(){
         return instance;
     }
+    
+    public List<Sendung> getSendungen() {
+        return sendungDao.findAll();
+    }
+    
 }

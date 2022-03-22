@@ -22,8 +22,6 @@ public class Briefmarke implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private double wert;
-    @OneToMany
-    private Sendung sendung;
 
     public int getId() {
         return id;
@@ -39,14 +37,6 @@ public class Briefmarke implements Serializable {
 
     public void setWert(double wert) {
         this.wert = wert;
-    }
-
-    public Sendung getSendung() {
-        return sendung;
-    }
-
-    public void setSendung(Sendung sendung) {
-        this.sendung = sendung;
     }
     
     

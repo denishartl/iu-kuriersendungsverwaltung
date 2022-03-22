@@ -25,8 +25,6 @@ public class Empfaenger implements Serializable {
     private String adresse_strasse;
     private String adresse_ort;
     private int adresse_plz;
-    @ManyToOne
-    private List<Sendung> sendungen;
 
     public int getId() {
         return id;
