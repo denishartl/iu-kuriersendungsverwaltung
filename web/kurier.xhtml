@@ -9,35 +9,41 @@
   </h:head>
   <h:body>
       <h1>Kuriersendungsverwaltung - Kurier</h1>
-      <h:dataTable value="#{verwaltung.sendungen}" var="sendung">
-          <h:column>
-              <f:facet name="header">ID</f:facet>
-              <h:outputText value="#{sendung.id}"/>
-          </h:column>
-          <h:column>
-              <f:facet name="header">Status</f:facet>
-              <h:outputText value="#{sendung.status}"/>
-          </h:column>
-          <h:column>
-              <f:facet name="header">Strasse</f:facet>
-              <h:outputText value="#{sendung.adresseStrasse}"/>
-          </h:column>
-          <h:column>
-              <f:facet name="header">Ort</f:facet>
-              <h:outputText value="#{sendung.adresseOrt}"/>
-          </h:column>
-          <h:column>
-              <f:facet name="header">PLZ</f:facet>
-              <h:outputText value="#{sendung.adressePlz}"/>
-          </h:column>
-          <h:column>
-              <f:facet name="header">Groesse</f:facet>
-              <h:outputText value="#{sendung.groesse}"/>
-          </h:column>
-          <h:column>
-              <f:facet name="header">Gewicht</f:facet>
-              <h:outputText value="#{sendung.gewicht}"/>
-          </h:column>
-      </h:dataTable>
+      <h:form id="table">
+        <h:selectOneMenu id="statusSelector" value="#{sendungController.sendungStatus}">
+            <f:selectItems value="#{sendungController.sendungStatusMap}" />
+            <f:ajax render="table"/>
+        </h:selectOneMenu>
+        <h:dataTable value="#{verwaltung.getSendungenByStatus(sendungController.sendungStatus)}" var="sendung">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{sendung.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">PLZ</f:facet>
+                <h:outputText value="#{sendung.adressePlz}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Ort</f:facet>
+                <h:outputText value="#{sendung.adresseOrt}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Straße</f:facet>
+                <h:outputText value="#{sendung.adresseStrasse}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Größe</f:facet>
+                <h:outputText value="#{sendung.groesse}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Gewicht</f:facet>
+                <h:outputText value="#{sendung.gewicht}"/>
+            </h:column>
+             <h:column>
+                <f:facet name="header">Status</f:facet>
+                <h:outputText value="#{sendung.status}"/>
+            </h:column>
+        </h:dataTable>
+      </h:form>
   </h:body>
 </html>

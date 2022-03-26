@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 public class Sendung implements Serializable {
     @Id
     private int id;
-    private String status;
+    private int status;
     private String adresseStrasse;
     private String adresseOrt;
     private int adressePlz;
@@ -34,11 +34,11 @@ public class Sendung implements Serializable {
         this.id = id;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

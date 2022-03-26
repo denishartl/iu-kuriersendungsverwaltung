@@ -25,4 +25,12 @@ public class SendungDAO {
         em.close();
         return alleSendungen;
     }
+    
+    public List<Sendung> findByStatus(int status) {
+        EntityManager em = emf.createEntityManager();
+        Query abfrage = em.createQuery("select s from Sendung s where status = " + status);
+        List<Sendung> alleSendungen = abfrage.getResultList();
+        em.close();
+        return alleSendungen;
+    }
 }
