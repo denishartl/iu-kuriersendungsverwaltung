@@ -46,6 +46,7 @@ public class SendungController {
     public Map<String, Object> getSendungStatusMap() {
         return sendungStatusMap;
     }
+   
 
     public void setSendungStatusMap(Map<String, Object> sendungStatusMap) {
         this.sendungStatusMap = sendungStatusMap;

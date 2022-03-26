@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,6 +24,8 @@ public class Briefmarke implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private double wert;
+    @ManyToOne
+    private Sendung sendung;
 
     public int getId() {
         return id;
@@ -37,6 +41,14 @@ public class Briefmarke implements Serializable {
 
     public void setWert(double wert) {
         this.wert = wert;
+    }
+
+    public Sendung getSendung() {
+        return sendung;
+    }
+
+    public void setSendung(Sendung sendung) {
+        this.sendung = sendung;
     }
     
     

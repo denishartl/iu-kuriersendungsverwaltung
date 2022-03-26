@@ -1,6 +1,7 @@
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,13 +10,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author hartlden
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Sendung implements Serializable {
     @Id
     private int id;
@@ -25,6 +26,10 @@ public class Sendung implements Serializable {
     private int adressePlz;
     private String groesse;
     private double gewicht;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sendung")
+    private List<Briefmarke> briefmarken;
+    @ManyToOne
+    private Empfaenger empfaenger;
 
     public int getId() {
         return id;
@@ -83,8 +88,19 @@ public class Sendung implements Serializable {
         this.gewicht = gewicht;
     }
 
-    
-    
+    public List<Briefmarke> getBriefmarken() {
+        return briefmarken;
+    }
 
-    
+    public void setBriefmarken(List<Briefmarke> briefmarken) {
+        this.briefmarken = briefmarken;
+    }
+
+    public Empfaenger getEmpfaenger() {
+        return empfaenger;
+    }
+
+    public void setEmpfaenger(Empfaenger empfaenger) {
+        this.empfaenger = empfaenger;
+    }    
 }

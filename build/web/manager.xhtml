@@ -1,16 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+        <title>Kuriersendungsverwaltung</title>
+    </h:head>
+    <h:body>
+        <h1>Kuriersendungsverwaltung - Manager  </h1>
+            <h:dataTable value="#{verwaltung.sendungen}" var="sendung">
+                <h:column >
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{sendung.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">PLZ</f:facet>
+                    <h:outputText value="#{sendung.adressePlz}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ort</f:facet>
+                    <h:outputText value="#{sendung.adresseOrt}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Straße</f:facet>
+                    <h:outputText value="#{sendung.adresseStrasse}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Größe</f:facet>
+                    <h:outputText value="#{sendung.groesse}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Gewicht</f:facet>
+                    <h:outputText value="#{sendung.gewicht}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputText value="#{sendungController.getSendungStatusMapByKey(sendung.status)}"/>
+                </h:column>
+            </h:dataTable>
+
+    </h:body>
 </html>

@@ -1,11 +1,13 @@
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +27,8 @@ public class Empfaenger implements Serializable {
     private String adresse_strasse;
     private String adresse_ort;
     private int adresse_plz;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empfaenger")
+    private List<Sendung> sendungen;
 
     public int getId() {
         return id;
@@ -57,6 +61,15 @@ public class Empfaenger implements Serializable {
     public void setAdresse_plz(int adresse_plz) {
         this.adresse_plz = adresse_plz;
     }
+
+    public List<Sendung> getSendungen() {
+        return sendungen;
+    }
+
+    public void setSendungen(List<Sendung> sendungen) {
+        this.sendungen = sendungen;
+    }
+    
     
     
 }
