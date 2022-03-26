@@ -2,6 +2,7 @@
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -32,5 +33,21 @@ public class SendungDAO {
         List<Sendung> alleSendungen = abfrage.getResultList();
         em.close();
         return alleSendungen;
+    }
+    
+    public Sendung findSendung(Sendung sendung) {
+        EntityManager em = emf.createEntityManager();
+        return em.merge(sendung);
+        //em.refresh(a);
+    }
+    
+    public void saveSendung(Sendung sendung) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction t = em.getTransaction();
+        System.out.println("Merging!");
+        System.out.println(sendung.getStatus());
+        t.begin();
+        em.merge(sendung);
+        t.commit();
     }
 }

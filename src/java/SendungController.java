@@ -19,6 +19,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 
 public class SendungController {
+    private Sendung sendung;
     private int sendungStatus = 3;
     private Map<String,Object> sendungStatusMap;
 
@@ -28,6 +29,10 @@ public class SendungController {
         sendungStatusMap.put("Bereit für Abholung", "2");
         sendungStatusMap.put("In Zustellung", "3");
         sendungStatusMap.put("Zugestellt", "4");
+    }
+    
+    public Sendung getSendung(Sendung sendung) {
+        return Verwaltung.getInstance().getSendung(sendung);
     }
     
     public int getSendungStatus() {
@@ -44,6 +49,10 @@ public class SendungController {
 
     public void setSendungStatusMap(Map<String, Object> sendungStatusMap) {
         this.sendungStatusMap = sendungStatusMap;
+    }
+    
+    public static void saveSendungStatus(Sendung sendung) {
+        Verwaltung.getInstance().saveSendungStatus(sendung);
     }
     
     

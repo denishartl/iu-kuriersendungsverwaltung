@@ -40,6 +40,7 @@ public class Sendung implements Serializable {
 
     public void setStatus(int status) {
         this.status = status;
+        SendungController.saveSendungStatus(this);
     }
 
     public String getAdresseStrasse() {
@@ -81,6 +82,9 @@ public class Sendung implements Serializable {
     public void setGewicht(double gewicht) {
         this.gewicht = gewicht;
     }
+
+    
+    
 
     
 }

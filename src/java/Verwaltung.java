@@ -24,12 +24,20 @@ public class Verwaltung {
         return instance;
     }
     
+    public Sendung getSendung(Sendung sendung) {
+        return sendungDao.findSendung(sendung);
+    }
+    
     public List<Sendung> getSendungen() {
         return sendungDao.findAll();
     }
     
     public List<Sendung> getSendungenByStatus(int status) {
         return sendungDao.findByStatus(status);
+    }
+    
+    public void saveSendungStatus(Sendung sendung) {
+        sendungDao.saveSendung(sendung);
     }
     
 }
