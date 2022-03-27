@@ -24,9 +24,11 @@ public class Empfaenger implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String adresse_strasse;
-    private String adresse_ort;
-    private int adresse_plz;
+    private String vorname;
+    private String nachname;
+    private String strasse;
+    private String ort;
+    private int plz;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empfaenger")
     private List<Sendung> sendungen;
 
@@ -38,28 +40,44 @@ public class Empfaenger implements Serializable {
         this.id = id;
     }
 
-    public String getAdresse_strasse() {
-        return adresse_strasse;
+    public String getVorname() {
+        return vorname;
     }
 
-    public void setAdresse_strasse(String adresse_strasse) {
-        this.adresse_strasse = adresse_strasse;
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
     }
 
-    public String getAdresse_ort() {
-        return adresse_ort;
+    public String getNachname() {
+        return nachname;
     }
 
-    public void setAdresse_ort(String adresse_ort) {
-        this.adresse_ort = adresse_ort;
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
     }
 
-    public int getAdresse_plz() {
-        return adresse_plz;
+    public String getStrasse() {
+        return strasse;
     }
 
-    public void setAdresse_plz(int adresse_plz) {
-        this.adresse_plz = adresse_plz;
+    public void setStrasse(String strasse) {
+        this.strasse = strasse;
+    }
+
+    public String getOrt() {
+        return ort;
+    }
+
+    public void setOrt(String ort) {
+        this.ort = ort;
+    }
+
+    public int getPlz() {
+        return plz;
+    }
+
+    public void setPlz(int plz) {
+        this.plz = plz;
     }
 
     public List<Sendung> getSendungen() {

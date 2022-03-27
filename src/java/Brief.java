@@ -12,6 +12,6 @@ import javax.persistence.Entity;
  * @author hartlden
  */
 @Entity
-public class Brief extends Sendung {
+public class Brief extends Sendung{
     
 }

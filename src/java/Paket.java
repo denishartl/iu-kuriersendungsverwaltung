@@ -12,7 +12,7 @@ import javax.persistence.Entity;
  * @author hartlden
  */
 @Entity
-public class Paket extends Sendung{
+public class Paket extends Sendung {
     private boolean Sperrgut;
 
     public boolean isSperrgut() {

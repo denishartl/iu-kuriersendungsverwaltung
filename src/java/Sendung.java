@@ -21,9 +21,9 @@ public class Sendung implements Serializable {
     @Id
     private int id;
     private int status;
-    private String adresseStrasse;
-    private String adresseOrt;
-    private int adressePlz;
+    private String strasse;
+    private String ort;
+    private int plz;
     private String groesse;
     private double gewicht;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sendung")
@@ -48,28 +48,28 @@ public class Sendung implements Serializable {
         SendungController.saveSendungStatus(this);
     }
 
-    public String getAdresseStrasse() {
-        return adresseStrasse;
+    public String getStrasse() {
+        return strasse;
     }
 
-    public void setAdresseStrasse(String adresseStrasse) {
-        this.adresseStrasse = adresseStrasse;
+    public void setStrasse(String strasse) {
+        this.strasse = strasse;
     }
 
-    public String getAdresseOrt() {
-        return adresseOrt;
+    public String getOrt() {
+        return ort;
     }
 
-    public void setAdresseOrt(String adresseOrt) {
-        this.adresseOrt = adresseOrt;
+    public void setOrt(String ort) {
+        this.ort = ort;
     }
 
-    public int getAdressePlz() {
-        return adressePlz;
+    public int getPlz() {
+        return plz;
     }
 
-    public void setAdressePlz(int adressePlz) {
-        this.adressePlz = adressePlz;
+    public void setPlz(int plz) {
+        this.plz = plz;
     }
 
     public String getGroesse() {

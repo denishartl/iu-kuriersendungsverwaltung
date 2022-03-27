@@ -10,13 +10,13 @@
     <h:body>
         <h1>Kuriersendungsverwaltung - Kurier</h1>
         <h:form id="table">
-            <h:selectOneMenu id="statusSelector" value="#{sendungController.sendungStatus}">
-                <f:selectItems value="#{sendungController.sendungStatusMap}" />
+            <h:selectOneMenu id="statusSelector" value="#{empfaengerController.sendungStatus}">
+                <f:selectItems value="#{empfaengerController.sendungStatusMap}" />
                 <f:ajax render="table"/>
             </h:selectOneMenu>
 
 
-            <h:dataTable value="#{verwaltung.getSendungenByStatus(sendungController.sendungStatus)}" var="sendung">
+            <h:dataTable value="#{verwaltung.getSendungenByStatus(empfaengerController.sendungStatus)}" var="sendung">
                 <h:column >
                     <f:facet name="header">ID</f:facet>
                     <h:outputText value="#{sendung.id}"/>
@@ -45,8 +45,8 @@
                     <h:form>
                         <f:facet name="header">Status</f:facet>
                         <h:selectOneMenu value="#{sendung.status}">
-                            <f:selectItems value="#{sendungController.sendungStatusMap}" />
-                            <f:ajax listener="#{sendungController.saveSendungStatus(sendung)}" render=":table"/>
+                            <f:selectItems value="#{empfaengerController.sendungStatusMap}" />
+                            <f:ajax listener="#{empfaengerController.saveSendungStatus(sendung)}" render=":table"/>
                         </h:selectOneMenu> 
                         <h:messages/>
                     </h:form>
