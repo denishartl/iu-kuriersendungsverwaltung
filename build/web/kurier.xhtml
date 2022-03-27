@@ -9,50 +9,52 @@
     </h:head>
     <h:body>
         <h1>Kuriersendungsverwaltung - Kurier</h1>
-        <h:form id="table">
-            <h:selectOneMenu id="statusSelector" value="#{empfaengerController.sendungStatus}">
-                <f:selectItems value="#{empfaengerController.sendungStatusMap}" />
-                <f:ajax render="table"/>
+        <h:form id="page">
+            <h:selectOneMenu id="statusSelector" value="#{sendungController.sendungSelector}">
+                <f:selectItems value="#{sendungController.sendungStatusMap}" />
+                <f:ajax render="page"/>
             </h:selectOneMenu>
-
-
-            <h:dataTable value="#{verwaltung.getSendungenByStatus(empfaengerController.sendungStatus)}" var="sendung">
-                <h:column >
-                    <f:facet name="header">ID</f:facet>
-                    <h:outputText value="#{sendung.id}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">PLZ</f:facet>
-                    <h:outputText value="#{sendung.adressePlz}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Ort</f:facet>
-                    <h:outputText value="#{sendung.adresseOrt}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Straße</f:facet>
-                    <h:outputText value="#{sendung.adresseStrasse}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Größe</f:facet>
-                    <h:outputText value="#{sendung.groesse}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Gewicht</f:facet>
-                    <h:outputText value="#{sendung.gewicht}"/>
-                </h:column>
-                <h:column>
-                    <h:form>
+            <h:form id="table">
+                <h:dataTable id="dataTable" value="#{verwaltung.getSendungenByStatus(sendungController.sendungSelector)}" var="sendung">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{sendung.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Empfänger</f:facet>
+                        <h:outputText value="#{sendung.empfaenger.vorname} #{sendung.empfaenger.nachname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">PLZ</f:facet>
+                        <h:outputText value="#{sendung.empfaenger.plz}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ort</f:facet>
+                        <h:outputText value="#{sendung.empfaenger.ort}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Straße</f:facet>
+                        <h:outputText value="#{sendung.empfaenger.strasse}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Größe (BxHxT)</f:facet>
+                        <h:outputText value="#{sendung.groesse}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Gewicht (KG)</f:facet>
+                        <h:outputText value="#{sendung.gewicht}"/>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Status</f:facet>
-                        <h:selectOneMenu value="#{sendung.status}">
-                            <f:selectItems value="#{empfaengerController.sendungStatusMap}" />
-                            <f:ajax listener="#{empfaengerController.saveSendungStatus(sendung)}" render=":table"/>
+                        <h:selectOneMenu value="#{sendung.status}" valueChangeListener="#{sendungController.updateStatus}" >
+                            <f:ajax event="click" listener="#{sendungController.sndng(sendung)}"/>
+                            <f:selectItems value="#{sendungController.sendungStatusMap}">
+                            </f:selectItems>
+                            <f:ajax render=":page"/>
                         </h:selectOneMenu> 
-                        <h:messages/>
-                    </h:form>
-
-                </h:column>
-            </h:dataTable>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
         </h:form>
 
     </h:body>
