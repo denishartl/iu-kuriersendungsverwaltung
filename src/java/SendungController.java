@@ -71,12 +71,6 @@ public class SendungController {
         System.out.println("Setting sendung to id " + sendung.getId());
         this.sendung = sendung;
     }
-
-    public String edit(Sendung sendung) {
-        this.sendung = sendung;
-        return "edit";
-    }
-    
     
     public void updateStatus(ValueChangeEvent event) {
         int newStatus = Integer.parseInt(event.getNewValue().toString());
@@ -84,17 +78,4 @@ public class SendungController {
         sendung.setStatus(newStatus);
         Verwaltung.getInstance().saveSendung(sendung);
     }
-    
-    public void save(String status) {
-        System.out.println("Passed status: ");
-        System.out.println(status);
-        /*System.out.println("Sendung got saved with status: ");
-        System.out.println(sendung.getStatus());
-        System.out.println("Value in Controller: ");
-        System.out.println(sendungStatus);
-        sendung.setStatus(sendungStatus);
-        Verwaltung.getInstance().saveSendung(sendung);
-        sendungStatus = sendungSelector;*/
-    }
-
 }

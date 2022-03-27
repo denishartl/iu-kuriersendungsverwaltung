@@ -26,5 +26,6 @@ public class BriefController {
     public void save(Empfaenger empfaenger) {
         brief.setEmpfaenger(Verwaltung.getInstance().getEmpfaenger(empfaenger));
         Verwaltung.getInstance().saveSendung(brief);
+        System.out.println("Change");
     }
 }
