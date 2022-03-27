@@ -20,16 +20,22 @@ import javax.faces.bean.SessionScoped;
 
 public class SendungController {
     private Sendung sendung;
-    private int sendungStatus = 3;
+    
+    
+    
+    /* private int sendungStatus = 3;
     private Map<String,Object> sendungStatusMap;
 
     public SendungController() {
         sendungStatusMap = new LinkedHashMap<String,Object>();
-        sendungStatusMap.put("Angekündigt", "1"); //label, value
-        sendungStatusMap.put("Bereit für Abholung", "2");
-        sendungStatusMap.put("In Zustellung", "3");
-        sendungStatusMap.put("Zugestellt", "4");
+        sendungStatusMap.put("Angekündigt", "0"); //label, value
+        sendungStatusMap.put("Bereit für Abholung", "1");
+        sendungStatusMap.put("In Zustellung", "2");
+        sendungStatusMap.put("Zugestellt", "3");
     }
+    
+    
+    
     
     public Sendung getSendung(Sendung sendung) {
         return Verwaltung.getInstance().getSendung(sendung);
@@ -55,6 +61,8 @@ public class SendungController {
     public static void saveSendungStatus(Sendung sendung) {
         Verwaltung.getInstance().saveSendungStatus(sendung);
     }
+    */
+
     
     
     

@@ -50,7 +50,7 @@ public class Verwaltung {
         return sendungDao.findByStatus(status);
     }
     
-    public void saveSendungStatus(Sendung sendung) {
+    public void saveSendung(Sendung sendung) {
         sendungDao.saveSendung(sendung);
     }
     

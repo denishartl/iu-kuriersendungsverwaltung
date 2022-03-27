@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:rich="http://richfaces.org/rich">
     <h:head>
         <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
         <title>Kuriersendungsverwaltung</title>
@@ -27,8 +28,36 @@
                 <h:outputLabel value="Ort" for="empfaenger_ort"/>
                 <h:inputText id="empfaenger_ort" value="#{empfaengerController.tempEmpfaenger.ort}"/>
             </h:panelGrid>
-            <h:commandButton value="Empfänger speichern" action="#{empfaengerController.submitEmpfaenger}" />
+            <h:commandButton value="Empfänger speichern" action="#{empfaengerController.submitEmpfaenger}" type="submit"/>
+            
         </h:form>
-         
+        <h2>Sendung</h2>
+        <h:form id="sendung_form">
+            <rich:tabPanel switchType="client">
+                <rich:tab header="Brief" id="tab1" name="tab1">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Größe (BxHxT, z.B. 120x60x60)" for="brief_groesse"/>
+                        <h:inputText id="sbrief_groesse" value="#{briefController.brief.groesse}"/>
+
+                        <h:outputLabel value="Gewicht (KG)" for="brief_gewicht"/>
+                        <h:inputText id="brief_gewicht" value="#{briefController.brief.gewicht}"/>
+                    </h:panelGrid>
+                    <h:commandButton value="Sendung speichern" action="#{briefController.save(empfaengerController.empfaenger)}" type="submit"/>
+                </rich:tab>
+                <rich:tab header="Paket" id="tab2" name="tab2">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Sperrgut" for="paket_sperrgut"/>
+                        <h:selectBooleanCheckbox id="paket_sperrgut" value="#{paketController.paket.sperrgut}"/>
+
+                        <h:outputLabel value="Größe (BxHxT, z.B. 120x60x60)" for="paket_groesse"/>
+                        <h:inputText id="paket_groesse" value="#{paketController.paket.groesse}"/>
+
+                        <h:outputLabel value="Gewicht (KG)" for="paket_gewicht"/>
+                        <h:inputText id="paket_gewicht" value="#{paketController.paket.gewicht}"/>
+                    </h:panelGrid>
+                    <h:commandButton value="Sendung speichern" type="submit" action="#{paketController.save(empfaengerController.empfaenger)}"/>
+                </rich:tab>
+            </rich:tabPanel>
+        </h:form>
     </h:body>
 </html>

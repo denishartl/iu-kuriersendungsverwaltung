@@ -1,7 +1,7 @@
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +15,7 @@ import javax.faces.bean.SessionScoped;
  */
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 
 public class EmpfaengerController {
     private Empfaenger empfaenger = null;

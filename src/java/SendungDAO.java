@@ -44,8 +44,6 @@ public class SendungDAO {
     public void saveSendung(Sendung sendung) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction t = em.getTransaction();
-        System.out.println("Merging!");
-        System.out.println(sendung.getStatus());
         t.begin();
         em.merge(sendung);
         t.commit();

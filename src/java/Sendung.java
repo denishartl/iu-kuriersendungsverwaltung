@@ -19,11 +19,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Sendung implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int status;
-    private String strasse;
-    private String ort;
-    private int plz;
     private String groesse;
     private double gewicht;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sendung")
@@ -45,31 +43,6 @@ public class Sendung implements Serializable {
 
     public void setStatus(int status) {
         this.status = status;
-        SendungController.saveSendungStatus(this);
-    }
-
-    public String getStrasse() {
-        return strasse;
-    }
-
-    public void setStrasse(String strasse) {
-        this.strasse = strasse;
-    }
-
-    public String getOrt() {
-        return ort;
-    }
-
-    public void setOrt(String ort) {
-        this.ort = ort;
-    }
-
-    public int getPlz() {
-        return plz;
-    }
-
-    public void setPlz(int plz) {
-        this.plz = plz;
     }
 
     public String getGroesse() {
