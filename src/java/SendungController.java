@@ -1,9 +1,9 @@
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
 
 /*
@@ -39,7 +39,6 @@ public class SendungController {
     }
     
     public void setSendung(Paket sendung) {
-        System.out.println("sendung got set!");
         this.sendung = Verwaltung.getInstance().getSendung(sendung);
     }
     
@@ -68,14 +67,24 @@ public class SendungController {
     }
     
     public void sndng(Sendung sendung) {
-        System.out.println("Setting sendung to id " + sendung.getId());
         this.sendung = sendung;
     }
     
     public void updateStatus(ValueChangeEvent event) {
         int newStatus = Integer.parseInt(event.getNewValue().toString());
-        System.out.println("Setting status for sendung with id " + sendung.getId() + " to " + newStatus);
         sendung.setStatus(newStatus);
         Verwaltung.getInstance().saveSendung(sendung);
+    }
+                
+    public List<Sendung> getSendungenByStatus() {
+        return Verwaltung.getInstance().getSendungenByStatus(sendungSelector);
+    }
+    
+    public List<Sendung> getSendungen() {
+        return Verwaltung.getInstance().getSendungen();
+    }
+    
+    public String getSendungStatusById(int sendungId) {
+        return Verwaltung.getInstance().getSendungStatusById(sendungId, sendungStatusMap);
     }
 }

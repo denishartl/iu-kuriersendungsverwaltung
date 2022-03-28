@@ -3,20 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/web/auftraggeber.xhtml</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/Empfaenger.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/Verwaltung.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/PaketController.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/SendungDAO.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/Brief.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/web/kurier.xhtml</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/EmpfaengerDAO.java</file>
+            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/web/sendungserfassung.xhtml</file>
             <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/SendungController.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/Sendung.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/BriefController.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/web/manager.xhtml</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/Paket.java</file>
-            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/src/java/EmpfaengerController.java</file>
+            <file>file:/C:/Users/hartlden/Projects/IPWA02/iu-kuriersendungsverwaltung/web/sendungsverfolgung.xhtml</file>
         </group>
     </open-files>
 </project-private>

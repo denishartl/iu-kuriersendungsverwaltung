@@ -15,7 +15,7 @@
                 <f:ajax render="page"/>
             </h:selectOneMenu>
             <h:form id="table">
-                <h:dataTable id="dataTable" value="#{verwaltung.getSendungenByStatus(sendungController.sendungSelector)}" var="sendung">
+                <h:dataTable id="dataTable" value="#{sendungController.getSendungenByStatus()}" var="sendung">
                     <h:column>
                         <f:facet name="header">ID</f:facet>
                         <h:outputText value="#{sendung.id}"/>

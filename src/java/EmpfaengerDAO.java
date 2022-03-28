@@ -35,6 +35,9 @@ public class EmpfaengerDAO {
         catch (IndexOutOfBoundsException ex) {
             throw ex;
         }
+        finally {
+            em.close();
+        }
     }
     
     public void saveEmpfaenger(Empfaenger empfaenger) {

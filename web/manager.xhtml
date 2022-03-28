@@ -8,14 +8,8 @@
         <title>Kuriersendungsverwaltung</title>
     </h:head>
     <h:body>
-        <h1>Kuriersendungsverwaltung - Kurier</h1>
-        <h:form id="page">
-            <h:selectOneMenu id="statusSelector" value="#{sendungController.sendungSelector}">
-                <f:selectItems value="#{sendungController.sendungStatusMap}" />
-                <f:ajax render="page"/>
-            </h:selectOneMenu>
-            <h:form id="table">
-                <h:dataTable id="dataTable" value="#{sendungController.getSendungenByStatus()}" var="sendung">
+        <h1>Kuriersendungsverwaltung - Manager</h1>
+                <h:dataTable id="dataTable" value="#{verwaltung.getSendungen()}" var="sendung">
                     <h:column>
                         <f:facet name="header">ID</f:facet>
                         <h:outputText value="#{sendung.id}"/>
@@ -46,16 +40,9 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">Status</f:facet>
-                        <h:selectOneMenu value="#{sendung.status}" valueChangeListener="#{sendungController.updateStatus}" >
-                            <f:ajax event="click" listener="#{sendungController.sndng(sendung)}"/>
-                            <f:selectItems value="#{sendungController.sendungStatusMap}">
-                            </f:selectItems>
-                            <f:ajax render=":page"/>
-                        </h:selectOneMenu> 
+                        <h:outputText value="#{sendungController.getSendungStatusById(sendung.id)}"/>
                     </h:column>
                 </h:dataTable>
-            </h:form>
-        </h:form>
 
     </h:body>
 </html>

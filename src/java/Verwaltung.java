@@ -50,6 +50,21 @@ public class Verwaltung {
         return sendungDao.findByStatus(status);
     }
     
+    public String getSendungStatusById(int sendungId, Map<String,Object> sendungStatusMap) {
+        try {
+            int status = (sendungDao.findById(sendungId)).getStatus();
+            for (Map.Entry<String, Object> e : sendungStatusMap.entrySet()) {
+                if (Integer.parseInt(e.getValue().toString()) == status) {
+                    return e.getKey();
+                }
+            }
+            return "Sendungsstatus unbekannt!";
+        }
+        catch (IndexOutOfBoundsException ex) {
+            return "Sendung nicht gefunden!";
+        }    
+    }
+    
     public void saveSendung(Sendung sendung) {
         sendungDao.saveSendung(sendung);
     }

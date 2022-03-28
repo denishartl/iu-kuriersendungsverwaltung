@@ -35,6 +35,20 @@ public class SendungDAO {
         return alleSendungen;
     }
     
+    public Sendung findById(int id) throws IndexOutOfBoundsException {
+        EntityManager em = emf.createEntityManager();
+        Query abfrage = em.createQuery("select s from Sendung s where id = " + id);
+        try {
+          return (Sendung)abfrage.getResultList().get(0);  
+        }
+        catch (IndexOutOfBoundsException ex) {
+            throw ex;
+        }
+        finally {
+            em.close();
+        }
+    }
+    
     public Sendung findSendung(Sendung sendung) {
         EntityManager em = emf.createEntityManager();
         return em.merge(sendung);
