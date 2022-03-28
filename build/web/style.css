@@ -78,3 +78,7 @@ td.bild img {
 td.nr {
   background-color: lightblue;
 }
+
+.error {
+    color: red;
+}

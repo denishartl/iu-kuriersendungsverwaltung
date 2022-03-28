@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:rich="http://richfaces.org/rich">
+    <h:head>
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+        <title>Kuriersendungsverwaltung</title>
+    </h:head>
+    <h:body>
+        <h1>Sendungserfassung - Empfänger</h1>
+        <h2>Empfänger</h2>
+        <h:form id="emfpanger_form">
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Vorname" for="empfaenger_vorname"/>
+                <h:inputText id="empfaenger_vorname" value="#{empfaengerController.tempEmpfaenger.vorname}" required="true" label="Vorname"/>
+                <h:message for="empfaenger_vorname" styleClass="error"/>
+
+                <h:outputLabel value="Nachname" for="empfaenger_nachname"/>
+                <h:inputText id="empfaenger_nachname" value="#{empfaengerController.tempEmpfaenger.nachname}" required="true" label="Nachname"/>
+                <h:message for="empfaenger_nachname" styleClass="error"/>
+
+                <h:outputLabel value="Straße" for="empfaenger_strasse"/>
+                <h:inputText id="empfaenger_strasse" value="#{empfaengerController.tempEmpfaenger.strasse}" required="true" label="Straße"/>
+                <h:message for="empfaenger_strasse" styleClass="error"/>
+
+                <h:outputLabel value="PLZ" for="empfaenger_plz"/>
+                <h:inputText id="empfaenger_plz" value="#{empfaengerController.tempEmpfaenger.plz}" required="true" label="PLZ">
+                    <f:validateLongRange minimum="10000"/>
+                    <f:validateLongRange maximum="99999"/>
+                </h:inputText>
+                <h:message for="empfaenger_plz" styleClass="error"/>
+
+                <h:outputLabel value="Ort" for="empfaenger_ort"/>
+                <h:inputText id="empfaenger_ort" value="#{empfaengerController.tempEmpfaenger.ort}" required="true" label="Ort"/>
+                <h:message for="empfaenger_ort" styleClass="error"/>
+            </h:panelGrid>
+            <h:commandButton value="Empfänger speichern" action="#{empfaengerController.submitEmpfaenger}" type="submit"/>
+            </h:form>
+    </h:body>
+</html>

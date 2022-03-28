@@ -24,6 +24,7 @@ public class Sendung implements Serializable {
     private int status;
     private String groesse;
     private double gewicht;
+    private double preis = 0.0;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sendung")
     private List<Briefmarke> briefmarken;
     @ManyToOne
@@ -76,4 +77,12 @@ public class Sendung implements Serializable {
     public void setEmpfaenger(Empfaenger empfaenger) {
         this.empfaenger = empfaenger;
     }    
+
+    public double getPreis() {
+        return preis;
+    }
+
+    public void setPreis(double preis) {
+        this.preis = preis;
+    }
 }

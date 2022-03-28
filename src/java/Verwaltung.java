@@ -12,7 +12,6 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 @ApplicationScoped
 public class Verwaltung {
-  //private List<Artikel> sortiment = new ArrayList<Artikel>();
     private static Verwaltung instance = new Verwaltung();
     private SendungDAO sendungDao;
     private EmpfaengerDAO empfaengerDao;

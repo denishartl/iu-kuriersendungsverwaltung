@@ -1,7 +1,7 @@
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +15,7 @@ import javax.faces.bean.ViewScoped;
  */
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 
 public class EmpfaengerController {
     private Empfaenger empfaenger = null;
@@ -33,7 +33,7 @@ public class EmpfaengerController {
         return tempEmpfaenger;
     }
     
-    public void submitEmpfaenger() {
+    public String submitEmpfaenger() {
         try {
            empfaenger = Verwaltung.getInstance().getEmpfaenger(tempEmpfaenger); 
         }
@@ -41,6 +41,6 @@ public class EmpfaengerController {
             Verwaltung.getInstance().saveEmpfaenger(tempEmpfaenger);
             empfaenger = tempEmpfaenger;
         }
-        
+        return "sendungserfassung";
     }
 }

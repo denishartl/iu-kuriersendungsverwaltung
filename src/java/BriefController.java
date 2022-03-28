@@ -1,6 +1,6 @@
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,7 +14,7 @@ import javax.faces.bean.ViewScoped;
  */
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 
 public class BriefController {
     private Brief brief = new Brief();
@@ -27,5 +27,9 @@ public class BriefController {
         brief.setEmpfaenger(Verwaltung.getInstance().getEmpfaenger(empfaenger));
         Verwaltung.getInstance().saveSendung(brief);
         System.out.println("Change");
+    }
+    
+    public void berechnePreis() {
+        brief.setPreis(0.7);
     }
 }
