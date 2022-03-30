@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,5 +87,23 @@ public class SendungController {
     
     public String getSendungStatusById(int sendungId) {
         return Verwaltung.getInstance().getSendungStatusById(sendungId, sendungStatusMap);
+    }
+    
+    public int getBriefmarkenAnzahl() {
+        return (int)Math.ceil(sendung.getPreis() / 0.7);
+    }
+    
+    public void frankiereSendung() {
+        List briefmarken = new ArrayList<Briefmarke>();
+        int anzahl_briefmarken = (int)Math.ceil(sendung.getPreis() / 0.7);
+        Verwaltung.getInstance().saveSendung(sendung);
+        for (int i = 0; i < anzahl_briefmarken; i++) {
+            briefmarken.add(new Briefmarke(sendung, 0.7));
+        }
+        //sendung.setBriefmarken(briefmarken);
+        Verwaltung.getInstance().saveBriefmarken(briefmarken);
+        
+        
+        System.out.println("Briefmarken saved to db");
     }
 }

@@ -23,24 +23,32 @@ public class PaketController {
         return paket;
     }
     
-    public void save(Empfaenger empfaenger) {
+    public String save(Empfaenger empfaenger) {
         paket.setEmpfaenger(Verwaltung.getInstance().getEmpfaenger(empfaenger));
         Verwaltung.getInstance().saveSendung(paket);
+        paket = new Paket();
+        return "frankierung";
     }
     
     public void berechnePreis() {
         System.out.println("calculating preis!");
-        if (paket.getGewicht() <= 5.0) {
-            paket.setPreis(1.70);
+        if (paket.getGewicht() > 10.0) {
+            paket.setPreis(5.00);
         }
         else if (paket.getGewicht() <= 10.0) {
             paket.setPreis(3.00);
         }
-        else if (paket.getGewicht() > 10.0) {
-            paket.setPreis(5.00);
+        else if (paket.getGewicht() <= 5.0) {
+            paket.setPreis(1.70);
         }
         if (paket.isSperrgut()) {
             paket.setPreis(paket.getPreis() + 3.00);
         }
     }
+
+    public void setPaket(Paket paket) {
+        this.paket = paket;
+    }
+    
+    
 }

@@ -17,7 +17,7 @@ import javax.persistence.OneToOne;
  * @author hartlden
  */
 @Entity
-public class Sendung implements Serializable {
+public class Sendung {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

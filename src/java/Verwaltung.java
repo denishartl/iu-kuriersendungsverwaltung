@@ -13,10 +13,12 @@ import javax.faces.bean.ManagedBean;
 @ApplicationScoped
 public class Verwaltung {
     private static Verwaltung instance = new Verwaltung();
+    private BriefmarkeDAO briefmarkeDao;
     private SendungDAO sendungDao;
     private EmpfaengerDAO empfaengerDao;
 
     public Verwaltung() {
+       briefmarkeDao = new BriefmarkeDAO();
        sendungDao = new SendungDAO();
        empfaengerDao = new EmpfaengerDAO();
     }
@@ -66,6 +68,12 @@ public class Verwaltung {
     
     public void saveSendung(Sendung sendung) {
         sendungDao.saveSendung(sendung);
+    }
+    
+    public void saveBriefmarken(List<Briefmarke> briefmarken) {
+        System.out.println("Made it to verwaltung");
+        System.out.println("Anzahl Briefmarken: " + briefmarken.size());
+        briefmarkeDao.saveBriefmarken(briefmarken);
     }
     
 }

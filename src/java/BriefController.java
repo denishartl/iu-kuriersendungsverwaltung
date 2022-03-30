@@ -23,13 +23,15 @@ public class BriefController {
         return brief;
     }
     
-    public void save(Empfaenger empfaenger) {
+    public String save(Empfaenger empfaenger) {
         brief.setEmpfaenger(Verwaltung.getInstance().getEmpfaenger(empfaenger));
         Verwaltung.getInstance().saveSendung(brief);
-        System.out.println("Change");
+        brief = new Brief();
+        return "frankierung";
     }
     
     public void berechnePreis() {
+        System.out.println("Setting brief price to 0.7");
         brief.setPreis(0.7);
     }
 }

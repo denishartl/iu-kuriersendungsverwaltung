@@ -26,6 +26,15 @@ public class Briefmarke implements Serializable {
     private double wert;
     @ManyToOne
     private Sendung sendung;
+    
+    public Briefmarke() {
+        
+    }
+    
+    public Briefmarke(Sendung sendung, double wert) {
+        this.sendung = sendung;
+        this.wert = wert;
+    }
 
     public int getId() {
         return id;

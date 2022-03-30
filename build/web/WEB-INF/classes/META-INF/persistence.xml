@@ -2,11 +2,6 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="kuriersendungsverwaltung" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>Brief</class>
-    <class>Briefmarke</class>
-    <class>Empfaenger</class>
-    <class>Paket</class>
-    <class>Sendung</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/kuriersendungsverwaltung"/>
       <property name="javax.persistence.jdbc.password" value="s0mep4ss"/>

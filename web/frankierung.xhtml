@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+        <title>Kuriersendungsverwaltung</title>
+    </h:head>
+    <h:body>
+        <h1>Sendungserfassung - Frankierung</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Preis für die Sendung" for="sendung_preis"/>
+                <h:outputText id="sendung_preis" value="#{sendungController.sendung.preis}"/>
+
+                <h:outputLabel value="Briefmarken á 0.70€" for="anzahl_briefmarken"/>
+                <h:outputText id="anzahl_briefmarken" value="#{sendungController.getBriefmarkenAnzahl()}">
+                    <f:convertNumber pattern="0"/>
+                </h:outputText>
+            </h:panelGrid>
+            <h:commandButton value="Bestellen" action="#{sendungController.frankiereSendung()}" type="submit"/>
+        </h:form>
+
+    </h:body>
+</html>
