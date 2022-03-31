@@ -9,40 +9,40 @@
     </h:head>
     <h:body>
         <h1>Kuriersendungsverwaltung - Manager</h1>
-                <h:dataTable id="dataTable" value="#{verwaltung.getSendungen()}" var="sendung">
-                    <h:column>
-                        <f:facet name="header">ID</f:facet>
-                        <h:outputText value="#{sendung.id}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Empfänger</f:facet>
-                        <h:outputText value="#{sendung.empfaenger.vorname} #{sendung.empfaenger.nachname}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">PLZ</f:facet>
-                        <h:outputText value="#{sendung.empfaenger.plz}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Ort</f:facet>
-                        <h:outputText value="#{sendung.empfaenger.ort}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Straße</f:facet>
-                        <h:outputText value="#{sendung.empfaenger.strasse}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Größe (BxHxT)</f:facet>
-                        <h:outputText value="#{sendung.groesse}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Gewicht (KG)</f:facet>
-                        <h:outputText value="#{sendung.gewicht}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Status</f:facet>
-                        <h:outputText value="#{sendungController.getSendungStatusById(sendung.id)}"/>
-                    </h:column>
-                </h:dataTable>
+        <h:dataTable id="dataTable" value="#{verwaltung.getSendungen()}" var="sendung">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{sendung.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Empfänger</f:facet>
+                <h:outputText value="#{sendung.empfaenger.vorname} #{sendung.empfaenger.nachname}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">PLZ</f:facet>
+                <h:outputText value="#{sendung.empfaenger.plz}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Ort</f:facet>
+                <h:outputText value="#{sendung.empfaenger.ort}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Straße</f:facet>
+                <h:outputText value="#{sendung.empfaenger.strasse}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Größe (BxHxT)</f:facet>
+                <h:outputText value="#{sendung.groesse}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Gewicht (KG)</f:facet>
+                <h:outputText value="#{sendung.gewicht}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                <h:outputText value="#{sendungController.getSendungStatusById(sendung.id)}"/>
+            </h:column>
+        </h:dataTable>
 
     </h:body>
 </html>

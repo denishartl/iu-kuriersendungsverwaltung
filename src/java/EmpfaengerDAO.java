@@ -11,8 +11,9 @@ import javax.persistence.Query;
  * @author hartlden
  */
 public class EmpfaengerDAO {
+
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("kuriersendungsverwaltung");
-    
+
     public List<Empfaenger> findAll() {
         EntityManager em = emf.createEntityManager();
         Query abfrage = em.createQuery("select e from Empfaenger e");
@@ -20,26 +21,24 @@ public class EmpfaengerDAO {
         em.close();
         return alleEmpfaenger;
     }
-    
+
     public Empfaenger findEmpfaenger(Empfaenger empfaenger) throws IndexOutOfBoundsException {
         EntityManager em = emf.createEntityManager();
-        Query abfrage = em.createQuery("select e from Empfaenger e\n" +
-                                        "WHERE NACHNAME = '" + empfaenger.getNachname() + "'\n" +
-                                        "AND    VORNAME = '" + empfaenger.getVorname() + "'\n" +
-                                        "AND    STRASSE = '" + empfaenger.getStrasse() + "'\n" +
-                                        "AND    PLZ = " + empfaenger.getPlz() + "\n" +
-                                        "AND    ORT = '" + empfaenger.getOrt() + "'");
+        Query abfrage = em.createQuery("select e from Empfaenger e\n"
+                + "WHERE NACHNAME = '" + empfaenger.getNachname() + "'\n"
+                + "AND    VORNAME = '" + empfaenger.getVorname() + "'\n"
+                + "AND    STRASSE = '" + empfaenger.getStrasse() + "'\n"
+                + "AND    PLZ = " + empfaenger.getPlz() + "\n"
+                + "AND    ORT = '" + empfaenger.getOrt() + "'");
         try {
-          return (Empfaenger)abfrage.getResultList().get(0);  
-        }
-        catch (IndexOutOfBoundsException ex) {
+            return (Empfaenger) abfrage.getResultList().get(0);
+        } catch (IndexOutOfBoundsException ex) {
             throw ex;
-        }
-        finally {
+        } finally {
             em.close();
         }
     }
-    
+
     public void saveEmpfaenger(Empfaenger empfaenger) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction t = em.getTransaction();

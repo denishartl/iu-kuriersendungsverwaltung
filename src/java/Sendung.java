@@ -6,18 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  *
  * @author hartlden
  */
 @Entity
-public class Sendung {
+public class Sendung implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -76,7 +74,7 @@ public class Sendung {
 
     public void setEmpfaenger(Empfaenger empfaenger) {
         this.empfaenger = empfaenger;
-    }    
+    }
 
     public double getPreis() {
         return preis;
