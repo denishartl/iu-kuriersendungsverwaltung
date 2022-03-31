@@ -96,14 +96,11 @@ public class SendungController {
     public void frankiereSendung() {
         List briefmarken = new ArrayList<Briefmarke>();
         int anzahl_briefmarken = (int)Math.ceil(sendung.getPreis() / 0.7);
-        Verwaltung.getInstance().saveSendung(sendung);
+        
         for (int i = 0; i < anzahl_briefmarken; i++) {
-            briefmarken.add(new Briefmarke(sendung, 0.7));
+            Verwaltung.getInstance().saveSendung(sendung);
+            Briefmarke briefmarke = new Briefmarke(sendung, 0.7);
+            Verwaltung.getInstance().saveBriefmarke(briefmarke);
         }
-        //sendung.setBriefmarken(briefmarken);
-        Verwaltung.getInstance().saveBriefmarken(briefmarken);
-        
-        
-        System.out.println("Briefmarken saved to db");
     }
 }

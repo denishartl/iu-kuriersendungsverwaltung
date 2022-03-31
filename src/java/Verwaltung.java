@@ -70,10 +70,8 @@ public class Verwaltung {
         sendungDao.saveSendung(sendung);
     }
     
-    public void saveBriefmarken(List<Briefmarke> briefmarken) {
-        System.out.println("Made it to verwaltung");
-        System.out.println("Anzahl Briefmarken: " + briefmarken.size());
-        briefmarkeDao.saveBriefmarken(briefmarken);
+    public void saveBriefmarke(Briefmarke briefmarke, Sendung sendung, int preis) {
+        briefmarkeDao.saveBriefmarke(briefmarke, sendung, preis);
     }
     
 }

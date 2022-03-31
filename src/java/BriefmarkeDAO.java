@@ -18,14 +18,12 @@ import javax.persistence.Persistence;
 public class BriefmarkeDAO {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("kuriersendungsverwaltung");
     
-    public void saveBriefmarken(List<Briefmarke> briefmarken) {
+    public void saveBriefmarke(Briefmarke briefmarke) {
         System.out.println("Made it to DAO");
         EntityManager em = emf.createEntityManager();
         EntityTransaction t = em.getTransaction();
         t.begin();
-        for (Briefmarke briefmarke : briefmarken) {
-            em.persist(briefmarke);  
-        }   
+        em.persist(briefmarke);    
         t.commit();
     }
 }
