@@ -25,7 +25,7 @@ public class Sendung implements Serializable {
     private double preis = 0.0;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sendung")
     private List<Briefmarke> briefmarken;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Empfaenger empfaenger;
 
     public int getId() {

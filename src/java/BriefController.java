@@ -1,13 +1,13 @@
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author hartlden
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 
 public class BriefController {
 

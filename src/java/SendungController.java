@@ -35,7 +35,6 @@ public class SendungController {
 
     public void setSendung(Paket sendung) {
         this.sendung = Verwaltung.getInstance().getSendung(sendung);
-        System.out.println(sendung.getId());
     }
 
     public int getSendungStatus() {
@@ -62,10 +61,11 @@ public class SendungController {
         this.sendungStatusMap = sendungStatusMap;
     }
 
-    public void sndng(Sendung sendung) {
+    public String sndng(Sendung sendung) {
         this.sendung = sendung;
+        return "frankierung";
     }
-
+    
     public void updateStatus(ValueChangeEvent event) {
         int newStatus = Integer.parseInt(event.getNewValue().toString());
         sendung.setStatus(newStatus);
@@ -92,7 +92,7 @@ public class SendungController {
         return (int) Math.ceil(sendung.getPreis() / 0.7);
     }
 
-    public void frankiereSendung() {
+    public String frankiereSendung() {
         List briefmarken = new ArrayList<Briefmarke>();
         int anzahl_briefmarken = getBriefmarkenAnzahl();
         for (int i = 0; i < anzahl_briefmarken; i++) {
@@ -101,5 +101,6 @@ public class SendungController {
         }
         sendung.setBriefmarken(briefmarken);
         Verwaltung.getInstance().saveSendung(sendung);
+        return "abgeschlossen";
     }
 }

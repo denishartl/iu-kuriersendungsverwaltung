@@ -1,13 +1,13 @@
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author hartlden
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 
 public class PaketController {
 
@@ -20,7 +20,6 @@ public class PaketController {
     public String save(Empfaenger empfaenger) {
         paket.setEmpfaenger(Verwaltung.getInstance().getEmpfaenger(empfaenger));
         Verwaltung.getInstance().saveSendung(paket);
-        paket = new Paket();
         return "frankierung";
     }
 

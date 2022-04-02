@@ -45,14 +45,15 @@ public class SendungDAO {
     public Sendung findSendung(Sendung sendung) {
         EntityManager em = emf.createEntityManager();
         return em.merge(sendung);
-        //em.refresh(a);
     }
 
     public void saveSendung(Sendung sendung) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction t = em.getTransaction();
+        System.out.println(sendung);
         t.begin();
         em.merge(sendung);
         t.commit();
+        em.close();
     }
 }

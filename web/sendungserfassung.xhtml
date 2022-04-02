@@ -53,8 +53,10 @@
                 </h:inputText>
                 <h:message for="brief_gewicht" styleClass="error"/>
             </h:panelGrid>
-            <h:commandButton value="Weiter" type="submit" actionListener="#{sendungController.sndng(briefController.brief)}" action="#{briefController.save(empfaengerController.empfaenger)}"/>
-            <f:ajax event="click" listener="#{briefController.berechnePreis}"/>
+            <h:commandButton value="Weiter" type="submit" action="#{sendungController.sndng(briefController.brief)}">
+               <f:actionListener binding="#{briefController.brief.setEmpfaenger(empfaengerController.empfaenger)}" />
+               <f:actionListener binding="#{briefController.berechnePreis()}" />
+           </h:commandButton>
         </h:form>
         <br/>
         <h3>ODER</h3>
@@ -77,8 +79,10 @@
                 </h:inputText>
                 <h:message for="paket_gewicht" styleClass="error"/>
             </h:panelGrid>
-            <h:commandButton value="Weiter" type="submit" actionListener="#{sendungController.sndng(paketController.paket)}" action="#{paketController.save(empfaengerController.empfaenger)}"/>
-            <f:ajax event="click" listener="#{paketController.berechnePreis}"/>
+            <h:commandButton value="Weiter" type="submit" action="#{sendungController.sndng(paketController.paket)}">
+                <f:actionListener binding="#{paketController.paket.setEmpfaenger(empfaengerController.empfaenger)}" />
+                <f:actionListener binding="#{paketController.berechnePreis()}" />
+            </h:commandButton>
         </h:form>
     </h:body>
 </html>
