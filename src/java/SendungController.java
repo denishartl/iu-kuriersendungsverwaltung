@@ -72,20 +72,16 @@ public class SendungController {
         Verwaltung.getInstance().saveSendung(sendung);
     }
 
-    public List<Sendung> getSendungenByStatus() {
-        return Verwaltung.getInstance().getSendungenByStatus(sendungSelector);
-    }
-
     public List<Sendung> getSendungen() {
         return Verwaltung.getInstance().getSendungen();
     }
-
-    public String getSendungStatusById(int sendungId) {
-        return Verwaltung.getInstance().getSendungStatusById(sendungId, sendungStatusMap);
+    
+    public List<Sendung> getSendungenByStatus() {
+        return Verwaltung.getInstance().getSendungenByStatus(sendungSelector);
     }
     
-    public void setSendungById(int sendungId) {
-        this.sendung =  Verwaltung.getInstance().getSendungById(sendungId);
+    public String getSendungStatusById(int sendungId) {
+        return Verwaltung.getInstance().getSendungStatusById(sendungId, sendungStatusMap);
     }
 
     public int getBriefmarkenAnzahl() {

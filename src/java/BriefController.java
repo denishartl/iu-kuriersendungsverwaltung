@@ -17,13 +17,6 @@ public class BriefController {
         return brief;
     }
 
-    public String save(Empfaenger empfaenger) {
-        brief.setEmpfaenger(Verwaltung.getInstance().getEmpfaenger(empfaenger));
-        Verwaltung.getInstance().saveSendung(brief);
-        brief = new Brief();
-        return "frankierung";
-    }
-
     public void berechnePreis() {
         brief.setPreis(0.7);
     }

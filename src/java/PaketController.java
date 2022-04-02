@@ -17,12 +17,6 @@ public class PaketController {
         return paket;
     }
 
-    public String save(Empfaenger empfaenger) {
-        paket.setEmpfaenger(Verwaltung.getInstance().getEmpfaenger(empfaenger));
-        Verwaltung.getInstance().saveSendung(paket);
-        return "frankierung";
-    }
-
     public void berechnePreis() {
         if (paket.getGewicht() > 10.0) {
             paket.setPreis(5.00);
@@ -35,9 +29,4 @@ public class PaketController {
             paket.setPreis(paket.getPreis() + 3.00);
         }
     }
-
-    public void setPaket(Paket paket) {
-        this.paket = paket;
-    }
-
 }

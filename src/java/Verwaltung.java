@@ -48,7 +48,7 @@ public class Verwaltung {
     public List<Sendung> getSendungenByStatus(int status) {
         return sendungDao.findByStatus(status);
     }
-
+    
     public String getSendungStatusById(int sendungId, Map<String, Object> sendungStatusMap) {
         try {
             int status = (sendungDao.findById(sendungId)).getStatus();
@@ -61,10 +61,6 @@ public class Verwaltung {
         } catch (IndexOutOfBoundsException ex) {
             return "Sendung nicht gefunden!";
         }
-    }
-
-    public Sendung getSendungById(int sendungId) {
-        return sendungDao.findById(sendungId);
     }
     
     public void saveSendung(Sendung sendung) {
