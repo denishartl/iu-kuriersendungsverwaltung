@@ -12,7 +12,7 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel value="Preis für die Sendung" for="sendung_preis"/>
-                <h:outputText id="sendung_preis" value="#{sendungController.sendung.preis}"/>
+                <h:outputText id="sendung_preis" value="#{sendungController.sendung.preis} €"/>
 
                 <h:outputLabel value="Briefmarken á 0.70€" for="anzahl_briefmarken"/>
                 <h:outputText id="anzahl_briefmarken" value="#{sendungController.getBriefmarkenAnzahl()}">
